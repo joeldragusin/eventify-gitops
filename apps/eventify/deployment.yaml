@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventify-backend
+  namespace: eventify
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: eventify-backend }
+  template:
+    metadata:
+      labels: { app: eventify-backend }
+    spec:
+      containers:
+        - name: backend
+          image: ghcr.io/joeldragusin/eventify-backend:0.1.0
+          ports:
+            - containerPort: 5000
