@@ -33,11 +33,20 @@ spec:
             - containerPort: 5432
           env:
             - name: POSTGRES_USER
-              value: eventify
+              valueFrom:
+                secretKeyRef:
+                  name: eventify-secrets
+                  key: POSTGRES_USER
             - name: POSTGRES_PASSWORD
-              value: devpassword
+              valueFrom:
+                secretKeyRef:
+                  name: eventify-secrets
+                  key: POSTGRES_PASSWORD
             - name: POSTGRES_DB
-              value: eventify
+              valueFrom:
+                secretKeyRef:
+                  name: eventify-secrets
+                  key: POSTGRES_DB
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql/data
