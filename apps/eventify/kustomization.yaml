@@ -6,3 +6,4 @@ resources:
   - postgres.yaml
   - secret.yaml
   - migrate-job.yaml
+  - hpa.yaml
