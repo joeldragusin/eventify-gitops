@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: eventify-backend
+  namespace: eventify
+spec:
+  selector:
+    app: eventify-backend
+  ports:
+    - port: 80
+      targetPort: 5000
